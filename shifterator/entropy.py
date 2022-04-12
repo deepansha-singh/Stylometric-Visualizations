@@ -1,4 +1,5 @@
 from math import log
+from numpy import longdouble
 
 
 def get_relative_freqs(type2freq):
@@ -16,7 +17,7 @@ def get_relative_freqs(type2freq):
         Keys are types and values are relative (normalized) frequencies
     """
     n = sum(type2freq.values())
-    type2p = {t: s / n for t, s in type2freq.items()}
+    type2p = {t: longdouble(s / n) for t, s in type2freq.items()}
     return type2p
 
 
@@ -116,6 +117,7 @@ def get_jsd_scores(type2p_1, type2p_2, weight_1=0.5, weight_2=0.5, base=2, alpha
         Keys are types and values are the weights of each type for its contribution
         to the JSD
     """
+
     type2m = dict()
     type2score_1 = dict()
     type2score_2 = dict()
@@ -123,7 +125,9 @@ def get_jsd_scores(type2p_1, type2p_2, weight_1=0.5, weight_2=0.5, base=2, alpha
     for t in types:
         p_1 = type2p_1[t] if t in type2p_1 else 0
         p_2 = type2p_2[t] if t in type2p_2 else 0
-        m = weight_1 * p_1 + weight_2 * p_2
+        if p_1 == 0  and p_2 == 0:
+            continue
+        m = longdouble(weight_1 * p_1 + weight_2 * p_2)
         s1, s2 = get_jsd_type_scores(p_1, p_2, m, weight_1, weight_2, base, alpha)
 
         type2m[t] = m
