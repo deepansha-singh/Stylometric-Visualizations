@@ -445,11 +445,11 @@ class Shift:
             title = (
                 "{}: ".format(kwargs["system_names"][0])
                 + r"$\Phi_{avg}=$"
-                + "{0:.2f}".format(s_avg_1)
-                + "\n"
+                + "{0:.5f}".format(s_avg_1)
+                + "\t"
                 + "{}: ".format(kwargs["system_names"][1])
                 + r"$\Phi_{avg}=$"
-                + "{0:.2f}".format(s_avg_2)
+                + "{0:.5f}".format(s_avg_2)
             )
             kwargs["title"] = title
         ax.set_title(kwargs["title"], fontsize=kwargs["title_fontsize"])

@@ -22,7 +22,7 @@ def get_plot_params(plot_params, show_score_diffs, diff):
         "every_nth_ytick": 5,
         "height": 15,
         "invisible_spines": [],
-        "label_fontsize": 13,
+        "label_fontsize": 9,
         "missing_symbol": "*",
         "pos_cumulative_inset": [0.19, 0.12, 0.175, 0.175],
         "pos_text_size_inset": [0.81, 0.12, 0.08, 0.08],
@@ -47,16 +47,16 @@ def get_plot_params(plot_params, show_score_diffs, diff):
         "system_names": ["Text 1", "Text 2"],
         "tick_format": "{:.1f}",
         "tight": True,
-        "title_fontsize": 18,
+        "title_fontsize": 10,
         "width": 7,
         "width_scaling": 1.2,
         "xlabel": r"Score shift $\delta \Phi_{\tau}$ (%)",
-        "xlabel_fontsize": 20,
-        "xtick_fontsize": 14,
+        "xlabel_fontsize": 10,
+        "xtick_fontsize": 10,
         "y_margin": 0.005,
         "ylabel": r"Rank",
-        "ylabel_fontsize": 20,
-        "ytick_fontsize": 14,
+        "ylabel_fontsize": 10,
+        "ytick_fontsize": 10,
     }
     defaults["symbols"] = {
         "all_pos_neg": defaults["system_names"][0],
@@ -223,7 +223,6 @@ def get_bar_colors(type_scores, plot_params):
             bar_colors["s"].append(score_colors["pos_s"])
         else:
             bar_colors["s"].append(score_colors["neg_s"])
-
     return bar_colors
 
 
@@ -740,17 +739,18 @@ def get_cumulative_inset(f, type2shift_score, top_n, normalization, plot_params)
         if plot_params["cumulative_xticklabels"] is None:
             plot_params["cumulative_xticklabels"] = ["-100", "", "-50", "", "0"]
     in_ax.set_xticks(plot_params["cumulative_xticks"])
-    in_ax.set_xticklabels(plot_params["cumulative_xticklabels"], fontsize=11)
+    in_ax.set_xticklabels(plot_params["cumulative_xticklabels"], fontsize=8)
     # Make tick labels smaller
     for tick in in_ax.yaxis.get_major_ticks():
-        tick.label.set_fontsize(11)
+        tick.label.set_fontsize(8)
     # Plot top_n line
     x_min, x_max = in_ax.get_xlim()
     in_ax.hlines(top_n, x_min, x_max, linestyle="-", color="black", linewidth=0.5)
     # Set labels
-    in_ax.set_xlabel(plot_params["cumulative_xlabel"], fontsize=12)
-    in_ax.set_ylabel(plot_params["cumulative_ylabel"], fontsize=12)
+    in_ax.set_xlabel(plot_params["cumulative_xlabel"], fontsize=8)
+    in_ax.set_ylabel(plot_params["cumulative_ylabel"], fontsize=8)
     # Make background transparent
+    print(plot_params["cumulative_xlabel"])
     in_ax.patch.set_alpha(0)
 
     return f
@@ -795,9 +795,9 @@ def get_text_size_inset(f, type2freq_1, type2freq_2, plot_params):
     # Rescale to make the bars appear to be more thin
     in_ax.set_ylim((0, 1))
     # Set title and label properties
-    in_ax.text(0.5, 0.75, "Text Size:", horizontalalignment="center", fontsize=14)
+    in_ax.text(0.5, 0.75, "Text Size:", horizontalalignment="center", fontsize=9)
     for tick in in_ax.yaxis.get_major_ticks():
-        tick.label.set_fontsize(12)
+        tick.label.set_fontsize(8)
     in_ax.tick_params(axis="y", length=0)
     # Turn off axes and make transparent
     for side in ["left", "right", "top", "bottom"]:
