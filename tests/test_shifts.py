@@ -1,6 +1,9 @@
 import random
 from itertools import product
 
+import sys
+sys.path.append('../')
+
 from shifterator import EntropyShift, JSDivergenceShift
 
 system_1_a = {"A": 10, "B": 10, "C": 10, "D": 10, "E": 10, "F": 10, "G": 10}
