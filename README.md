@@ -7,9 +7,13 @@ There are many statistical measures available for analyzing a given text. Howeve
 Recently there has been a shift in the stylometric field from statistical analysis to visualization. Word shift graphs are the new trend. They are more effective as they consider all the factors that formulas did not, and also because the human brain is better at visualizing.
 
 To understand the working of these graphs, we reviewed a few case studies, namely:
+
 • 'Sentiment peculiarities of Moby Dick and U.S. urban parks'
+
 • 'Information content of 280-character tweets,' 
+
 • 'Employment diversity and urban resilience during the Great Recession'
+
 • 'Average sentiment comparison of speeches by two United States presidents: Lyndon B. Johnson (1963–1969) and George W. Bush (2001–2009).' 
 
 Afterwards, we set out to form our corpora and scrutinize them to get meaningful information.
