@@ -11,7 +11,7 @@ In this case study, we aim to analyze two popular
 romance pieces of fiction, namely:
 crime1 = Gone Girl (Gillian Flynn)
 crime2 = The ABC Murders (Agatha Christie)
-for their respective degree of 'joy' expressed.
+for their respective degree expressed.
 
 Database:
 We incorporate the SocialSent historical score dictionaries
